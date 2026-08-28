@@ -57,7 +57,8 @@ h1 { max-width: 920px; margin-bottom: 28px; color: var(--primary); font-size: cl
 .secondary-link { padding-block: 12px; color: var(--secondary); font-size: 0.8rem; text-decoration: none; }
 .secondary-link:hover { text-decoration: underline; }
 
-.home-hero, .course-facts, .welcome-section, .start-panel, .contact-line {
+.home-hero, .course-facts, .welcome-section, .start-panel, .contact-line,
+.roblox-hero, .roblox-intro, .roblox-steps, .roblox-code-section, .script-types, .roblox-next {
   width: min(1180px, calc(100% - 40px));
   margin-inline: auto;
 }
@@ -136,6 +137,60 @@ h1 { max-width: 920px; margin-bottom: 28px; color: var(--primary); font-size: cl
 .contact-line span, .contact-line a { color: var(--primary); }
 .contact-line a:hover { color: var(--secondary); }
 
+.roblox-hero {
+  min-height: 650px;
+  padding: clamp(74px, 10vw, 130px) 0 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.roblox-intro, .roblox-steps, .roblox-code-section, .script-types { padding: 88px 0; }
+.roblox-intro, .roblox-code-section, .roblox-next { border-top: 1px dashed var(--border); }
+.roblox-intro-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
+.roblox-feature-card { min-height: 310px; padding: clamp(28px, 5vw, 54px); }
+.roblox-feature-card + .roblox-feature-card { border-left: 1px solid var(--border); }
+.roblox-feature-card.is-highlighted { background: rgba(51, 255, 0, 0.035); }
+.roblox-feature-card h3 { margin-bottom: 24px; font-size: clamp(2.2rem, 5vw, 4.6rem); }
+.roblox-feature-card p:not(.topic) { max-width: 50ch; line-height: 1.7; }
+.roblox-feature-card code { display: inline-block; margin-top: 14px; padding: 12px 14px; border: 1px dashed var(--border); color: var(--primary); background: #070907; }
+.roblox-feature-card a { display: inline-block; margin-top: 14px; color: var(--secondary); font-size: 0.8rem; text-decoration: none; }
+.roblox-feature-card a:hover { text-decoration: underline; }
+
+.step-list { margin: 0; padding: 0; border: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); list-style: none; }
+.step-list li { min-height: 210px; padding: 28px 24px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; gap: 34px; }
+.step-list li:last-child { border-right: 0; }
+.step-list li > span { color: var(--secondary); font-size: 0.78rem; }
+.step-list strong { display: block; margin-bottom: 12px; color: var(--primary); }
+.step-list p { margin-bottom: 0; color: var(--text); font-size: 0.86rem; line-height: 1.65; }
+
+.code-window { border: 1px solid var(--border); }
+.roblox-code-content { display: grid; grid-template-columns: 0.9fr 1.1fr; }
+.code-instructions { padding: clamp(28px, 5vw, 54px); border-right: 1px solid var(--border); }
+.code-instructions h2 { max-width: 13ch; margin-bottom: 30px; }
+.code-instructions ol { margin: 0; padding-left: 22px; color: var(--text); line-height: 1.8; }
+.code-instructions li + li { margin-top: 10px; }
+.code-instructions code { color: var(--secondary); }
+.roblox-code-content > div:last-child { min-width: 0; padding: clamp(28px, 5vw, 54px); display: flex; flex-direction: column; justify-content: center; }
+.roblox-code { max-width: 100%; margin: 0 0 22px; padding: clamp(18px, 3vw, 30px); border: 1px dashed var(--border); overflow-x: auto; color: var(--primary); background: #070907; font: clamp(0.73rem, 1.4vw, 0.9rem)/1.8 "JetBrains Mono", monospace; }
+.code-result { margin: 0; color: var(--muted); font-size: 0.8rem; line-height: 1.6; }
+.code-result span { color: var(--secondary); }
+
+.script-type-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); }
+.script-type-grid article { min-height: 230px; padding: 28px; border-right: 1px solid var(--border); }
+.script-type-grid article:last-child { border-right: 0; }
+.script-type-grid span { color: var(--secondary); font-size: 0.75rem; }
+.script-type-grid h3 { margin: 34px 0 16px; font-size: clamp(1.4rem, 3vw, 2.2rem); }
+.script-type-grid p { margin: 0; color: var(--text); font-size: 0.86rem; line-height: 1.7; }
+.server-note { margin: 22px 0 0; padding: 20px 22px; border-left: 2px solid var(--secondary); color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+.server-note strong { color: var(--secondary); }
+
+.roblox-next { margin-block: 70px 90px; padding: clamp(30px, 5vw, 54px); border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.roblox-next h2 { margin-bottom: 16px; }
+.roblox-next p:not(.prompt-label) { max-width: 60ch; margin-bottom: 0; line-height: 1.65; }
+.roblox-next .primary-button { flex: 0 0 auto; }
+
 .games-section { padding: 84px 0 104px; border-top: 1px dashed var(--border); scroll-margin-top: 24px; }
 .section-heading { margin-bottom: 38px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .prompt-label { margin-bottom: 8px; color: var(--muted); }
@@ -187,6 +242,7 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .status { display: none; }
   .hero { min-height: auto; padding: 76px 0 70px; }
   .home-hero { min-height: auto; padding: 88px 0 78px; }
+  .roblox-hero { min-height: auto; padding: 88px 0 78px; }
   .prompt-line { margin-bottom: 34px; }
   h1 { font-size: clamp(2.45rem, 12vw, 4.4rem); }
   .course-facts { grid-template-columns: 1fr 1fr; }
@@ -195,6 +251,16 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .welcome-section { grid-template-columns: 1fr; gap: 40px; }
   .start-panel { align-items: flex-start; flex-direction: column; }
   .contact-line { align-items: flex-start; flex-direction: column; }
+  .roblox-intro-grid, .roblox-code-content { grid-template-columns: 1fr; }
+  .roblox-feature-card + .roblox-feature-card { border-top: 1px solid var(--border); border-left: 0; }
+  .step-list { grid-template-columns: 1fr 1fr; }
+  .step-list li:nth-child(2) { border-right: 0; }
+  .step-list li:nth-child(-n + 2) { border-bottom: 1px solid var(--border); }
+  .code-instructions { border-right: 0; border-bottom: 1px solid var(--border); }
+  .script-type-grid { grid-template-columns: 1fr; }
+  .script-type-grid article { min-height: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+  .script-type-grid article:last-child { border-bottom: 0; }
+  .roblox-next { align-items: flex-start; flex-direction: column; }
   .game-layout { grid-template-columns: 1fr; }
   .category-tabs { margin-top: -8px; }
   .game-list { border-right: 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; }
@@ -212,10 +278,12 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
 }
 
 @media (max-width: 460px) {
-  .hero, .games-section, .help-section, .home-hero, .course-facts, .welcome-section, .start-panel, .contact-line { width: min(100% - 28px, 1180px); }
+  .hero, .games-section, .help-section, .home-hero, .course-facts, .welcome-section, .start-panel, .contact-line,
+  .roblox-hero, .roblox-intro, .roblox-steps, .roblox-code-section, .script-types, .roblox-next { width: min(100% - 28px, 1180px); }
   .system-bar { min-height: 46px; }
   .main-nav { gap: 14px; }
   .main-nav a { font-size: 0.66rem; }
+  .brand { font-size: 0.7rem; }
   .hero-copy { font-size: 0.96rem; }
   .category-tabs { display: grid; grid-template-columns: 1fr; }
   .category-tab { width: 100%; }
@@ -226,6 +294,12 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .course-facts > div:last-child { border-bottom: 0; }
   .welcome-section { padding-block: 72px; }
   .start-panel { margin-block: 70px; }
+  .roblox-intro, .roblox-steps, .roblox-code-section, .script-types { padding-block: 70px; }
+  .step-list { grid-template-columns: 1fr; }
+  .step-list li { min-height: 160px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .step-list li:nth-child(2) { border-bottom: 1px solid var(--border); }
+  .step-list li:last-child { border-bottom: 0; }
+  .roblox-next { margin-block: 54px 70px; }
   .game-content { padding: 26px 20px 32px; }
   .window-bar { padding-inline: 14px; }
   footer { align-items: flex-start; flex-direction: column; justify-content: center; gap: 6px; }

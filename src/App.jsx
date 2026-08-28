@@ -138,6 +138,7 @@ function SiteHeader({ activePage }) {
       <nav className="main-nav" aria-label="Hovedmenu">
         <a className={activePage === "home" ? "is-active" : ""} href="/">FORSIDE</a>
         <a className={activePage === "css" ? "is-active" : ""} href="/css-spil">KODE-SPIL</a>
+        <a className={activePage === "roblox" ? "is-active" : ""} href="/roblox">ROBLOX</a>
       </nav>
       <span className="status" aria-label="Status: klar"><span className="status-dot" aria-hidden="true" /> KLAR</span>
     </header>
@@ -295,7 +296,110 @@ function CssGamesPage() {
   );
 }
 
+function RobloxPage() {
+  return (
+    <div className="site-shell">
+      <SiteHeader activePage="roblox" />
+
+      <main id="top">
+        <section className="roblox-hero" aria-labelledby="roblox-title">
+          <p className="prompt-line" aria-hidden="true">elev@vusk:~$ start roblox-studio<span className="cursor" /></p>
+          <p className="eyebrow">ROBLOX STUDIO // LUAU</p>
+          <h1 id="roblox-title">BYG ET SPIL.<br />LÆR AT KODE.</h1>
+          <p className="hero-copy">I Roblox Studio bygger du en 3D-verden og bruger kode til at få døre, point, fælder og figurer til at virke.</p>
+          <div className="hero-actions">
+            <a className="primary-button" href="#roblox-start">[ START MED 4 TRIN ]</a>
+            <a className="secondary-link" href="https://create.roblox.com/docs/studio/setup" target="_blank" rel="noreferrer">HENT ROBLOX STUDIO --&gt;</a>
+          </div>
+        </section>
+
+        <section className="roblox-intro" aria-labelledby="language-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/roblox/grundviden</p><h2 id="language-heading">HVILKET SPROG BRUGER MAN?</h2></div>
+            <p className="counter">[ LUAU ]</p>
+          </div>
+          <div className="roblox-intro-grid">
+            <article className="roblox-feature-card is-highlighted">
+              <p className="topic">KODESPROGET</p>
+              <h3>LUAU</h3>
+              <p>Luau er sproget, der fortæller spillet, hvad der skal ske. Det er bygget videre på sproget Lua og lavet til Roblox.</p>
+              <code>print("Hej Roblox!")</code>
+            </article>
+            <article className="roblox-feature-card">
+              <p className="topic">PROGRAMMET</p>
+              <h3>ROBLOX STUDIO</h3>
+              <p>Studio er det gratis program til Windows og Mac, hvor du bygger, skriver kode og tester dit spil.</p>
+              <a href="https://create.roblox.com/docs/studio" target="_blank" rel="noreferrer">LÆS OM STUDIO --&gt;</a>
+            </article>
+          </div>
+        </section>
+
+        <section className="roblox-steps" id="roblox-start" aria-labelledby="steps-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/roblox/første-spil</p><h2 id="steps-heading">FRA IDÉ TIL SPIL</h2></div>
+            <p className="counter">[ 4 TRIN ]</p>
+          </div>
+          <ol className="step-list">
+            <li><span>01</span><div><strong>BYG</strong><p>Lav en verden med klodser, farver og figurer.</p></div></li>
+            <li><span>02</span><div><strong>TILFØJ ET SCRIPT</strong><p>Et Script er stedet, hvor din kode bor.</p></div></li>
+            <li><span>03</span><div><strong>SKRIV LUAU</strong><p>Fortæl spillet, hvad der skal ske.</p></div></li>
+            <li><span>04</span><div><strong>TRYK PLAY</strong><p>Test, find fejl, ret koden og prøv igen.</p></div></li>
+          </ol>
+        </section>
+
+        <section className="roblox-code-section" aria-labelledby="code-heading">
+          <div className="code-window">
+            <div className="window-bar"><span>FØRSTE_SCRIPT.LUAU</span><span className="level">BEGYNDER</span></div>
+            <div className="roblox-code-content">
+              <div className="code-instructions">
+                <p className="topic">DIN FØRSTE KODE</p>
+                <h2 id="code-heading">FÅ EN KLODS TIL AT SKIFTE FARVE</h2>
+                <ol>
+                  <li>Lav en <code>Part</code>, og kald den <code>PracticePart</code>.</li>
+                  <li>Tilføj et <code>Script</code> i <code>ServerScriptService</code>.</li>
+                  <li>Indsæt koden, og tryk <strong>Play</strong>.</li>
+                </ol>
+              </div>
+              <div>
+                <pre className="roblox-code" aria-label="Eksempel på Luau-kode"><code>{`-- Gør klodsen gul
+workspace.PracticePart.Color = Color3.fromRGB(255, 230, 50)`}</code></pre>
+                <p className="code-result"><span>[ RESULTAT ]</span> Klodsen bliver gul, når spillet starter.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="script-types" aria-labelledby="scripts-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/roblox/næste-niveau</p><h2 id="scripts-heading">TRE SLAGS SCRIPTS</h2></div>
+          </div>
+          <div className="script-type-grid">
+            <article><span>01</span><h3>Script</h3><p>Brug det til spillets fælles regler. Som begynder kan du placere det i ServerScriptService.</p></article>
+            <article><span>02</span><h3>LocalScript</h3><p>Kører hos én spiller. Det bruges blandt andet til knapper, kamera og spillerens input.</p></article>
+            <article><span>03</span><h3>ModuleScript</h3><p>Gemmer kode, som flere scripts kan genbruge.</p></article>
+          </div>
+          <p className="server-note"><strong>KORT SAGT:</strong> Spilleren sender input. Serveren passer på de fælles regler, point og belønninger.</p>
+        </section>
+
+        <section className="roblox-next" aria-labelledby="roblox-next-heading">
+          <div>
+            <p className="prompt-label">[ KLAR TIL AT BYGGE? ]</p>
+            <h2 id="roblox-next-heading">START SMÅT. TEST OFTE.</h2>
+            <p>Lav først én klods, der gør én ting. Derefter kan du bygge mere på.</p>
+          </div>
+          <a className="primary-button" href="https://create.roblox.com/docs/tutorials/fundamentals/coding-1/object-properties" target="_blank" rel="noreferrer">[ ÅBN ROBLOX-GUIDEN ]</a>
+        </section>
+      </main>
+
+      <SiteFooter />
+      <div className="scanlines" aria-hidden="true" />
+    </div>
+  );
+}
+
 export function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
-  return path === "/css-spil" ? <CssGamesPage /> : <HomePage />;
+  if (path === "/css-spil") return <CssGamesPage />;
+  if (path === "/roblox") return <RobloxPage />;
+  return <HomePage />;
 }
