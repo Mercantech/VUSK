@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Design QA focused comparison</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 20px; background: #202020; color: white; font: 14px sans-serif; }
+      main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      figure { margin: 0; }
+      figcaption { margin-bottom: 8px; }
+      .crop { height: 540px; overflow: hidden; border: 1px solid #666; background: black; }
+      img { width: 100%; height: auto; display: block; }
+      .source img { transform: translateY(-220px); }
+      .implementation img { transform: translateY(-360px); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <figure><figcaption>Source: learning path</figcaption><div class="crop source"><img src="./source-design.png" alt="Source learning path" /></div></figure>
+      <figure><figcaption>Implementation: game chooser</figcaption><div class="crop implementation"><img src="./implementation-full-page.png" alt="Implementation game chooser" /></div></figure>
+    </main>
+  </body>
+</html>
