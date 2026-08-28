@@ -14,3 +14,4 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Keep information density low: one selected game and one primary action at a time.
 - Preserve the simple, linear terminal direction with phosphor green and amber accents.
 - Use short, beginner-friendly Danish explanations and avoid unexplained technical jargon.
+- AI-Lab is a three-lesson Teachable Machine course that shows one lesson at a time and avoids collecting faces, names, or other personal information.

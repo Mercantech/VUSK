@@ -131,14 +131,69 @@ const games = [
 
 const categories = ["CSS", "JAVASCRIPT", "PYTHON"];
 
+const aiLessons = [
+  {
+    id: "train",
+    number: "01",
+    title: "Lær maskinen",
+    topic: "BILLEDER + DATA",
+    duration: "2 TIMER + PAUSE",
+    summary: "Træn en AI til at kende forskel på to helt almindelige ting — og til at opdage, når ingen af dem er der.",
+    goal: "Jeg kan forklare, at AI lærer fra eksempler — ikke ved at gætte eller tænke som et menneske.",
+    steps: [
+      "Vælg Image Project i Teachable Machine.",
+      "Lav to klasser til jeres ting og en tredje, der hedder INGEN.",
+      "Tag cirka lige mange billeder fra forskellige vinkler og afstande.",
+      "Træn modellen, og test den med helt nye billeder.",
+    ],
+    challenge: "Byt plads, lys eller baggrund. Virker modellen stadig?",
+    reflection: "Hvilke eksempler hjalp modellen mest?",
+  },
+  {
+    id: "improve",
+    number: "02",
+    title: "Gør den bedre",
+    topic: "STEN · SAKS · PAPIR",
+    duration: "2 TIMER + PAUSE",
+    summary: "Byg en model med tre håndtegn, og undersøg hvorfor en AI nogle gange tager fejl.",
+    goal: "Jeg kan forbedre en model ved at bruge flere og mere forskellige træningseksempler.",
+    steps: [
+      "Lav klasserne STEN, SAKS, PAPIR og INGEN HÅND.",
+      "Saml billeder med forskellige hænder, vinkler og baggrunde.",
+      "Træn modellen, og lad en anden gruppe teste den.",
+      "Find dens svageste klasse, tilføj bedre data, og træn igen.",
+    ],
+    challenge: "Lav først med vilje en dårlig model. Kan I forklare præcis, hvorfor den fejler?",
+    reflection: "Er 90 % sikkerhed altid det samme som et rigtigt svar?",
+  },
+  {
+    id: "control",
+    number: "03",
+    title: "Bliv controlleren",
+    topic: "KROP + BEVÆGELSE",
+    duration: "2 TIMER + PAUSE",
+    summary: "Træn tre kropspositioner, der kan bruges som VENSTRE, STOP og HØJRE i et fremtidigt spil.",
+    goal: "Jeg kan bruge en AI-model som input og forklare, hvordan dens svar kan styre et spil.",
+    steps: [
+      "Vælg Pose Project, og lav tre tydelige positioner.",
+      "Saml lige mange eksempler uden ansigter og personlige oplysninger.",
+      "Træn modellen, og test den med flere personer.",
+      "Eksportér modellinket, og sæt det ind i underviserens færdige spilskabelon.",
+    ],
+    challenge: "Find tre positioner, som modellen sjældent forveksler — også når en ny elev prøver.",
+    reflection: "Hvordan kunne modellens svar flytte en figur i et spil?",
+  },
+];
+
 function SiteHeader({ activePage }) {
   return (
     <header className="system-bar" aria-label="Sidehoved">
       <a className="brand" href="/" aria-label="VUSK Dev, gå til forsiden">VUSK_DEV</a>
       <nav className="main-nav" aria-label="Hovedmenu">
         <a className={activePage === "home" ? "is-active" : ""} href="/">FORSIDE</a>
-        <a className={activePage === "css" ? "is-active" : ""} href="/css-spil">KODE-SPIL</a>
+        <a className={activePage === "css" ? "is-active" : ""} href="/css-spil">SPIL</a>
         <a className={activePage === "roblox" ? "is-active" : ""} href="/roblox">ROBLOX</a>
+        <a className={activePage === "ai" ? "is-active" : ""} href="/ai-lab">AI-LAB</a>
       </nav>
       <span className="status" aria-label="Status: klar"><span className="status-dot" aria-hidden="true" /> KLAR</span>
     </header>
@@ -397,9 +452,114 @@ workspace.PracticePart.Color = Color3.fromRGB(255, 230, 50)`}</code></pre>
   );
 }
 
+function AiLabPage() {
+  const [activeLessonIndex, setActiveLessonIndex] = useState(0);
+  const activeLesson = aiLessons[activeLessonIndex];
+
+  function selectLesson(index) {
+    setActiveLessonIndex(index);
+    document.querySelector("#ai-forloeb")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  return (
+    <div className="site-shell">
+      <SiteHeader activePage="ai" />
+
+      <main id="top">
+        <section className="ai-hero" aria-labelledby="ai-title">
+          <p className="prompt-line" aria-hidden="true">elev@vusk:~$ start ai-lab<span className="cursor" /></p>
+          <p className="eyebrow">TEACHABLE MACHINE // 3 LEKTIONER</p>
+          <h1 id="ai-title">LÆR EN MASKINE<br />AT GENKENDE DIG.</h1>
+          <p className="hero-copy">Træn din egen AI med billeder og bevægelser. Test den, find dens fejl, og brug den som en spil-controller.</p>
+          <div className="hero-actions">
+            <a className="primary-button" href="#ai-forloeb">[ START LEKTION 1 ]</a>
+            <a className="secondary-link" href="https://teachablemachine.withgoogle.com/train" target="_blank" rel="noreferrer">ÅBN TEACHABLE MACHINE --&gt;</a>
+          </div>
+        </section>
+
+        <section className="ai-basics" aria-labelledby="ai-basics-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/ai/sådan-virker-det</p><h2 id="ai-basics-heading">TRE TING AI'EN SKAL BRUGE</h2></div>
+          </div>
+          <ol className="ai-flow" aria-label="Arbejdsgangen fra data til test">
+            <li><span>01</span><strong>SAML DATA</strong><p>Vis mange forskellige eksempler.</p></li>
+            <li><span>02</span><strong>TRÆN</strong><p>Lad modellen finde mønstre.</p></li>
+            <li><span>03</span><strong>TEST</strong><p>Prøv med noget, den ikke har set før.</p></li>
+          </ol>
+          <p className="ai-definition"><span>[ HUSK ]</span> AI'en forstår ikke en hånd eller en blyant. Den leder efter mønstre i de eksempler, I giver den.</p>
+        </section>
+
+        <section className="ai-course" id="ai-forloeb" aria-labelledby="ai-course-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/ai/forløbet</p><h2 id="ai-course-heading">VÆLG LEKTION</h2></div>
+            <p className="counter" aria-live="polite">[{String(activeLessonIndex + 1).padStart(2, "0")}/03]</p>
+          </div>
+
+          <div className="ai-course-layout">
+            <nav className="ai-lesson-list" aria-label="AI-lektioner">
+              {aiLessons.map((lesson, index) => (
+                <button className={`ai-lesson-tab ${index === activeLessonIndex ? "is-active" : ""}`} key={lesson.id} type="button" onClick={() => selectLesson(index)} aria-current={index === activeLessonIndex ? "step" : undefined}>
+                  <span>{lesson.number}</span>
+                  <span><strong>{lesson.title}</strong><small>{lesson.topic}</small></span>
+                  <span aria-hidden="true">{index === activeLessonIndex ? "<" : ">"}</span>
+                </button>
+              ))}
+            </nav>
+
+            <article className="ai-lesson-detail" aria-labelledby={`${activeLesson.id}-heading`}>
+              <div className="window-bar"><span>LEKTION_{activeLesson.number}.TXT</span><span className="level">{activeLesson.duration}</span></div>
+              <div className="ai-lesson-content">
+                <p className="topic">{activeLesson.topic}</p>
+                <h3 id={`${activeLesson.id}-heading`}>{activeLesson.title}</h3>
+                <p className="summary">{activeLesson.summary}</p>
+                <div className="ai-goal"><span>MÅL</span><p>{activeLesson.goal}</p></div>
+                <ol className="ai-mission-steps">
+                  {activeLesson.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><p>{step}</p></li>)}
+                </ol>
+                <div className="ai-prompts">
+                  <p><span>BONUSMISSION</span>{activeLesson.challenge}</p>
+                  <p><span>TÆNK OVER</span>{activeLesson.reflection}</p>
+                </div>
+                <div className="detail-actions">
+                  <a className="primary-button" href="https://teachablemachine.withgoogle.com/train" target="_blank" rel="noreferrer">[ ÅBN VÆRKTØJET ]</a>
+                  {activeLessonIndex < aiLessons.length - 1 && <button className="text-button" type="button" onClick={() => selectLesson(activeLessonIndex + 1)}>NÆSTE LEKTION --&gt;</button>}
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="ai-safety" aria-labelledby="ai-safety-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/ai/gode-regler</p><h2 id="ai-safety-heading">TRYGT AI-LAB</h2></div>
+          </div>
+          <div className="ai-rule-grid">
+            <article><span>01</span><h3>INGEN ANSIGTER</h3><p>Brug genstande, hænder og kropspositioner. Man kan også vælge en rolle helt uden at stå foran kameraet.</p></article>
+            <article><span>02</span><h3>TEST ANDRE</h3><p>En model skal også virke med nye personer, vinkler og baggrunde.</p></article>
+            <article><span>03</span><h3>FEJL ER DATA</h3><p>Når modellen tager fejl, har I fundet et spor til, hvordan den kan forbedres.</p></article>
+          </div>
+        </section>
+
+        <section className="ai-teacher-note" aria-labelledby="teacher-heading">
+          <div>
+            <p className="prompt-label">[ TIL UNDERVISEREN ]</p>
+            <h2 id="teacher-heading">KLAR INDEN START</h2>
+            <p>Arbejd i grupper på 2–3. Tjek kameraadgang, hav små genstande klar, og aftal at ingen gemmer eller uploader billeder af andre. Lektion 3 kræver en færdig JavaScript-spilskabelon, hvor eleverne kun indsætter deres modellink.</p>
+          </div>
+          <a className="primary-button" href="https://teachablemachine.withgoogle.com/" target="_blank" rel="noreferrer">[ SE AI-VÆRKTØJET ]</a>
+        </section>
+      </main>
+
+      <SiteFooter />
+      <div className="scanlines" aria-hidden="true" />
+    </div>
+  );
+}
+
 export function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
   if (path === "/css-spil") return <CssGamesPage />;
   if (path === "/roblox") return <RobloxPage />;
+  if (path === "/ai-lab") return <AiLabPage />;
   return <HomePage />;
 }
