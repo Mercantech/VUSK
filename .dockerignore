@@ -1,0 +1,10 @@
+.git
+.gitignore
+dist
+node_modules
+npm-debug.log*
+qa
+tests
+design-qa.md
+README.md
+docker-compose*.yml
