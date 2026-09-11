@@ -59,7 +59,8 @@ h1 { max-width: 920px; margin-bottom: 28px; color: var(--primary); font-size: cl
 
 .home-hero, .course-facts, .welcome-section, .start-panel, .contact-line,
 .roblox-hero, .roblox-intro, .roblox-steps, .roblox-code-section, .script-types, .roblox-next,
-.ai-hero, .ai-basics, .ai-course, .ai-safety, .ai-teacher-note {
+.ai-hero, .ai-basics, .ai-course, .ai-safety, .ai-teacher-note,
+.plan-hero, .plan-section {
   width: min(1180px, calc(100% - 40px));
   margin-inline: auto;
 }
@@ -137,6 +138,46 @@ h1 { max-width: 920px; margin-bottom: 28px; color: var(--primary); font-size: cl
 .contact-line p { margin-bottom: 0; }
 .contact-line span, .contact-line a { color: var(--primary); }
 .contact-line a:hover { color: var(--secondary); }
+
+.plan-hero { min-height: 620px; padding: clamp(74px, 10vw, 124px) 0 84px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.plan-hero h1 { margin-bottom: 24px; }
+.plan-timebar { width: min(760px, 100%); border: 1px solid var(--border); display: grid; grid-template-columns: 1fr 0.72fr 1fr; }
+.plan-timebar span { min-height: 82px; padding: 18px 20px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+.plan-timebar span:last-child { border-right: 0; }
+.plan-timebar small { color: var(--muted); font-size: 0.68rem; }
+.plan-timebar strong { color: var(--primary); font-size: 0.82rem; }
+.plan-timebar .is-break { background: rgba(255, 176, 0, 0.045); }
+.plan-timebar .is-break strong { color: var(--secondary); }
+.plan-section { padding: 84px 0 104px; border-top: 1px dashed var(--border); }
+.plan-layout { display: grid; grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr); border: 1px solid var(--border); align-items: start; }
+.date-list { max-height: 720px; border-right: 1px solid var(--border); overflow-y: auto; scrollbar-color: var(--border) var(--background); }
+.date-row { width: 100%; min-height: 62px; padding: 12px 16px; border: 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 46px 80px minmax(0, 1fr) auto; align-items: center; gap: 10px; color: var(--muted); background: transparent; text-align: left; cursor: pointer; }
+.date-row:last-child { border-bottom: 0; }
+.date-row:hover, .date-row.is-active { color: var(--primary); background: rgba(51, 255, 0, 0.045); }
+.date-row.is-active { box-shadow: inset 3px 0 0 var(--primary); }
+.date-row.is-off { color: #556b51; background: rgba(255,255,255,0.012); }
+.date-row.is-off:hover, .date-row.is-off.is-active { color: var(--secondary); background: rgba(255, 176, 0, 0.04); }
+.date-row.is-off.is-active { box-shadow: inset 3px 0 0 var(--secondary); }
+.date-week, .date-state { font-size: 0.68rem; letter-spacing: 0.05em; }
+.date-day { color: currentColor; font-size: 0.72rem; font-weight: 700; }
+.date-topic { min-width: 0; overflow: hidden; color: var(--text); font-size: 0.75rem; text-overflow: ellipsis; white-space: nowrap; }
+.date-row.is-off .date-topic { color: currentColor; }
+.date-state { color: var(--secondary); text-align: right; }
+.day-detail { position: sticky; top: 0; min-width: 0; }
+.day-content, .day-off-content { padding: clamp(28px, 5vw, 54px); }
+.day-content h3, .day-off-content h3 { margin-bottom: 28px; font-size: clamp(1.9rem, 4vw, 3.35rem); }
+.time-blocks { margin: 0; padding: 0; border: 1px solid var(--border); list-style: none; }
+.time-blocks li { min-height: 100px; padding: 18px 20px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 64px 1fr; align-items: start; gap: 16px; }
+.time-blocks li:last-child { border-bottom: 0; }
+.time-blocks time { color: var(--secondary); font-size: 0.76rem; }
+.time-blocks strong { display: block; margin-bottom: 8px; color: var(--primary); font-size: 0.8rem; }
+.time-blocks p { margin: 0; color: var(--text); font-size: 0.82rem; line-height: 1.6; }
+.time-blocks .is-break { min-height: 82px; background: rgba(255, 176, 0, 0.04); }
+.time-blocks .is-break strong { color: var(--secondary); }
+.finish-time { margin: 24px 0 0; color: var(--muted); font-size: 0.72rem; text-align: right; }
+.day-off-content { min-height: 400px; display: flex; flex-direction: column; justify-content: center; }
+.day-off-content .topic, .day-off-content h3 { color: var(--secondary); }
+.day-off-content p:last-child { max-width: 42ch; color: var(--text); line-height: 1.7; }
 
 .roblox-hero {
   min-height: 650px;
@@ -305,6 +346,7 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .home-hero { min-height: auto; padding: 88px 0 78px; }
   .roblox-hero { min-height: auto; padding: 88px 0 78px; }
   .ai-hero { min-height: auto; padding: 88px 0 78px; }
+  .plan-hero { min-height: auto; padding: 88px 0 78px; }
   .prompt-line { margin-bottom: 34px; }
   h1 { font-size: clamp(2.45rem, 12vw, 4.4rem); }
   .course-facts { grid-template-columns: 1fr 1fr; }
@@ -338,6 +380,9 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .ai-rule-grid article:last-child { border-bottom: 0; }
   .ai-teacher-note { align-items: flex-start; flex-direction: column; }
   .game-layout { grid-template-columns: 1fr; }
+  .plan-layout { grid-template-columns: 1fr; }
+  .date-list { max-height: 480px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .day-detail { position: static; }
   .category-tabs { margin-top: -8px; }
   .game-list { border-right: 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; }
   .game-tab:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -357,6 +402,7 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .hero, .games-section, .help-section, .home-hero, .course-facts, .welcome-section, .start-panel, .contact-line,
   .roblox-hero, .roblox-intro, .roblox-steps, .roblox-code-section, .script-types, .roblox-next { width: min(100% - 28px, 1180px); }
   .ai-hero, .ai-basics, .ai-course, .ai-safety, .ai-teacher-note { width: min(100% - 28px, 1180px); }
+  .plan-hero, .plan-section { width: min(100% - 28px, 1180px); }
   .system-bar { min-height: 46px; }
   .main-nav { gap: 14px; }
   .main-nav a { font-size: 0.66rem; }
@@ -367,6 +413,12 @@ footer { min-height: 68px; border-top: 1px solid var(--border); border-bottom: 0
   .hero-actions, .detail-actions { align-items: stretch; flex-direction: column; }
   .primary-button { width: 100%; }
   .course-facts { grid-template-columns: 1fr; }
+  .plan-timebar { grid-template-columns: 1fr; }
+  .plan-timebar span { min-height: 66px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .plan-timebar span:last-child { border-bottom: 0; }
+  .date-row { min-height: 72px; grid-template-columns: 42px 74px 1fr; }
+  .date-topic { grid-column: 2 / -1; grid-row: 2; }
+  .date-state { grid-column: 3; grid-row: 1; }
   .course-facts > div { border-right: 0; border-bottom: 1px solid var(--border); }
   .course-facts > div:last-child { border-bottom: 0; }
   .welcome-section { padding-block: 72px; }

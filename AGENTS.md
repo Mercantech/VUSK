@@ -15,3 +15,6 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Preserve the simple, linear terminal direction with phosphor green and amber accents.
 - Use short, beginner-friendly Danish explanations and avoid unexplained technical jargon.
 - AI-Lab is a three-lesson Teachable Machine course that shows one lesson at a time and avoids collecting faces, names, or other personal information.
+- The teaching plan runs on Thursdays from 16:30–19:00 as two one-hour work blocks with a 30-minute break, across 22 active dates from 17 September 2026 through 11 March 2027; week 41 is a teaching week, while school breaks and genuinely free Thursdays remain visible in the calendar.
+- Start the course with Roblox after a first session dedicated entirely to introductions, inspiration, expectations, and agreeing how the group works together.
+- Frame sessions as collaborative workshop time with short shared starts, substantial making time, peer testing, and frequent informal show-and-tell—not as lecture-heavy teaching.

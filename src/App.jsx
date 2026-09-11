@@ -185,12 +185,42 @@ const aiLessons = [
   },
 ];
 
+const teachingDays = [
+  { week: "U38", date: "17. SEP.", phase: "VELKOMST", title: "Intro og forventninger", first: "Vi lærer hinanden at kende, ser eksempler og taler om, hvad holdet kan blive.", second: "Vi samler jeres idéer, aftaler hvordan vi hjælper hinanden og vælger, hvad I glæder jer mest til." },
+  { week: "U39", date: "24. SEP.", phase: "ROBLOX", title: "Ind i Roblox Studio", first: "Vi går på opdagelse i Studio sammen og prøver at flytte, dreje og bygge med klodser.", second: "Byg en lille fælles verden, og vis én detalje til resten af holdet." },
+  { week: "U40", date: "01. OKT.", phase: "ROBLOX", title: "Byg en verden", first: "Vælg et tema i små hold, og lav en hurtig plan for jeres verden.", second: "Byg banen sammen, prøv hinandens områder og giv idéer videre." },
+  { week: "U41", date: "08. OKT.", phase: "ROBLOX", title: "Lav en udfordring", first: "Tilføj hop, fælder eller en hemmelig vej til jeres bane.", second: "Spiltest med et andet hold, og vis den sjoveste eller sværeste del." },
+  { week: "U42", date: "15. OKT.", off: true, title: "Efterårsferie" },
+  { week: "U43", date: "22. OKT.", phase: "ROBLOX", title: "Få verden til at reagere", first: "Vi prøver en lille stump Luau-kode, der ændrer noget i spillet.", second: "Brug koden til en dør, fælde eller platform i jeres egen verden." },
+  { week: "U44", date: "29. OKT.", phase: "ROBLOX", title: "Mål og belønning", first: "Vælg et tydeligt mål og en belønning til spilleren.", second: "Byg det ind, test sammen og se om spilleren forstår idéen." },
+  { week: "U45", date: "05. NOV.", phase: "ROBLOX", title: "Byg jeres mini-spil", first: "Fordel små opgaver på holdet, og byg videre på den vigtigste del.", second: "Saml delene, spiltest og hjælp et andet hold videre." },
+  { week: "U46", date: "12. NOV.", phase: "ROBLOX", title: "Roblox-fremvisning", first: "Gør spillet klar, ret de fejl der står i vejen, og øv en kort præsentation.", second: "Spil hinandens spil, vis jeres bedste idé og fortæl, hvad I byggede sammen." },
+  { week: "U47", date: "19. NOV.", phase: "WEB", title: "Vælg en hjemmeside-idé", first: "Se sjove eksempler, og vælg noget I gerne vil lave en side om.", second: "Tegn siden hurtigt, vælg indhold og begynd at bygge den sammen." },
+  { week: "U48", date: "26. NOV.", phase: "WEB", title: "Byg siden med HTML", first: "Vi prøver de få HTML-tags, I skal bruge til tekst, billeder og links.", second: "Byg indholdet på jeres egen side, og hjælp hinanden når noget driller." },
+  { week: "U49", date: "03. DEC.", phase: "CSS", title: "Giv siden sin stil", first: "Prøv farver, skrifter og selectors gennem små CSS-udfordringer.", second: "Vælg et udtryk til jeres side, og gør det tydeligt hele vejen igennem." },
+  { week: "U50", date: "10. DEC.", phase: "CSS", title: "Få styr på layoutet", first: "Leg med Flexbox og Grid, og vælg det der passer til jeres idé.", second: "Få siden til at hænge sammen på både stor og lille skærm." },
+  { week: "U51", date: "17. DEC.", phase: "WEB", title: "Web-fremvisning", first: "Byt side med et andet hold, få feedback og læg sidste hånd på detaljerne.", second: "Vis jeres side frem, og fortæl om ét valg I er stolte af." },
+  { week: "U52", date: "24. DEC.", off: true, title: "Juleferie" },
+  { week: "U53", date: "31. DEC.", off: true, title: "Juleferie" },
+  { week: "U1", date: "07. JAN.", phase: "JAVASCRIPT", title: "Få siden til at reagere", first: "Vi prøver knapper, små beskeder og point sammen.", second: "Vælg en reaktion, og byg den ind på jeres egen side." },
+  { week: "U2", date: "14. JAN.", phase: "JAVASCRIPT", title: "Lav regler og valg", first: "Prøv hvordan kode kan vælge, hvad der skal ske.", second: "Byg en quiz, et valg eller en lille overraskelse sammen." },
+  { week: "U3", date: "21. JAN.", phase: "JAVASCRIPT", title: "Byg et mini-spil", first: "Vælg et enkelt mål, og fordel de små byggeopgaver på holdet.", second: "Byg, spiltest og lån gode idéer af hinanden." },
+  { week: "U4", date: "28. JAN.", phase: "JAVASCRIPT", title: "Spilaften", first: "Gør spillet klar, og hjælp et andet hold med deres sidste fejl.", second: "Spil hinandens spil, vis den bedste detalje og stem på sjove idéer." },
+  { week: "U5", date: "04. FEB.", phase: "AI-LAB", title: "AI lærer fra eksempler", first: "Saml sikre billeder af ting, og træn en enkel model sammen.", second: "Byt testting med et andet hold, og vis en overraskende fejl." },
+  { week: "U6", date: "11. FEB.", phase: "AI-LAB", title: "Gør modellen bedre", first: "Træn sten, saks og papir med mange forskellige eksempler.", second: "Find modellens svage punkt sammen, forbedr den og vis forskellen." },
+  { week: "U7", date: "18. FEB.", off: true, title: "Vinterferie" },
+  { week: "U8", date: "25. FEB.", phase: "AI-LAB", title: "Brug AI som controller", first: "Træn tre tydelige positioner uden ansigter, og test dem på tværs af hold.", second: "Brug modellens svar som styring i et spil, og lad de andre prøve." },
+  { week: "U9", date: "04. MAR.", phase: "PROJEKT", title: "Vælg jeres favoritprojekt", first: "Vælg Roblox, web, JavaScript eller AI, og gør idéen lille nok til at blive færdig.", second: "Byg den vigtigste del sammen, og vis en tidlig version til et andet hold." },
+  { week: "U10", date: "11. MAR.", phase: "FINALE", title: "Byg færdig og vis frem", first: "Test, hjælp hinanden og læg sidste hånd på projektet.", second: "Fælles fremvisning: prøv projekterne og fortæl, hvad I skabte sammen." },
+];
+
 function SiteHeader({ activePage }) {
   return (
     <header className="system-bar" aria-label="Sidehoved">
       <a className="brand" href="/" aria-label="VUSK Dev, gå til forsiden">VUSK_DEV</a>
       <nav className="main-nav" aria-label="Hovedmenu">
         <a className={activePage === "home" ? "is-active" : ""} href="/">FORSIDE</a>
+        <a className={activePage === "plan" ? "is-active" : ""} href="/plan">PLAN</a>
         <a className={activePage === "css" ? "is-active" : ""} href="/css-spil">SPIL</a>
         <a className={activePage === "roblox" ? "is-active" : ""} href="/roblox">ROBLOX</a>
         <a className={activePage === "ai" ? "is-active" : ""} href="/ai-lab">AI-LAB</a>
@@ -221,7 +251,7 @@ function HomePage() {
         </section>
 
         <section className="course-facts" aria-label="Praktisk information">
-          <div><span>PERIODE</span><strong>17/09/2026–16/03/2027</strong></div>
+          <div><span>PERIODE</span><strong>17/09/2026–11/03/2027</strong></div>
           <div><span>TID</span><strong>TORSDAG 16.30–19.00</strong></div>
           <div><span>STED</span><strong>MERCANTEC</strong></div>
           <div><span>LEDIGE PLADSER</span><strong className="availability">11 / 20</strong></div>
@@ -242,16 +272,97 @@ function HomePage() {
 
         <section className="start-panel" aria-labelledby="start-heading">
           <div>
-            <p className="prompt-label">[ FØRSTE OPGAVE ]</p>
-            <h2 id="start-heading">KLAR TIL AT GÅ I GANG?</h2>
-            <p>Start med CSS-spillene og lær at styre farver, placering og layout.</p>
+            <p className="prompt-label">[ 22 TORSDAGE ]</p>
+            <h2 id="start-heading">SE HVAD VI SKAL LAVE</h2>
+            <p>Åbn planen og se emnet for hver torsdag — fra den første hjemmeside til den sidste fremvisning.</p>
           </div>
-          <a className="primary-button" href="/css-spil">[ START CSS ]</a>
+          <a className="primary-button" href="/plan">[ ÅBN PLANEN ]</a>
         </section>
 
         <section className="contact-line" aria-label="Kontakt og opstart">
           <p><span>START:</span> UGE 38 · VI FØLGER FOLKESKOLERNES FERIER</p>
           <p><span>KONTAKT:</span> ANDERS MØLBAK · <a href="tel:+4520874168">20 87 41 68</a></p>
+        </section>
+      </main>
+      <SiteFooter />
+      <div className="scanlines" aria-hidden="true" />
+    </div>
+  );
+}
+
+function PlanPage() {
+  const firstTeachingDay = teachingDays.findIndex((day) => !day.off);
+  const [activeDayIndex, setActiveDayIndex] = useState(firstTeachingDay);
+  const activeDay = teachingDays[activeDayIndex];
+  const lessonNumber = teachingDays.slice(0, activeDayIndex + 1).filter((day) => !day.off).length;
+
+  function selectDay(index) {
+    setActiveDayIndex(index);
+    document.querySelector("#dagens-plan")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  return (
+    <div className="site-shell">
+      <SiteHeader activePage="plan" />
+      <main id="top">
+        <section className="plan-hero" aria-labelledby="plan-title">
+          <p className="prompt-line" aria-hidden="true">elev@vusk:~$ vis værkstedsplan<span className="cursor" /></p>
+          <p className="eyebrow">TORSDAGE // 2026–2027</p>
+          <h1 id="plan-title">DET SKAL<br />VI BYGGE.</h1>
+          <p className="hero-copy">22 torsdage hvor vi bygger sammen, prøver idéer og viser dem til hinanden. Roblox kommer først.</p>
+          <div className="plan-timebar" aria-label="Fast tidsplan hver torsdag">
+            <span><small>16.30–17.30</small><strong>START SAMMEN</strong></span>
+            <span className="is-break"><small>17.30–18.00</small><strong>PAUSE</strong></span>
+            <span><small>18.00–19.00</small><strong>BYG + VIS</strong></span>
+          </div>
+        </section>
+
+        <section className="plan-section" aria-labelledby="calendar-heading">
+          <div className="section-heading">
+            <div><p className="prompt-label">~/holdet/torsdage</p><h2 id="calendar-heading">VÆLG EN TORSDAG</h2></div>
+            <p className="counter">[ 22 GANGE ]</p>
+          </div>
+
+          <div className="plan-layout">
+            <nav className="date-list" aria-label="Alle torsdage i undervisningsperioden">
+              {teachingDays.map((day, index) => (
+                <button
+                  className={`date-row ${day.off ? "is-off" : ""} ${index === activeDayIndex ? "is-active" : ""}`}
+                  key={`${day.week}-${day.date}`}
+                  type="button"
+                  onClick={() => selectDay(index)}
+                  aria-current={index === activeDayIndex ? "date" : undefined}
+                >
+                  <span className="date-week">{day.week}</span>
+                  <span className="date-day">{day.date}</span>
+                  <span className="date-topic">{day.title}</span>
+                  <span className="date-state">{day.off ? "FRI" : day.phase}</span>
+                </button>
+              ))}
+            </nav>
+
+            <article className={`day-detail ${activeDay.off ? "is-off" : ""}`} id="dagens-plan" aria-live="polite">
+              <div className="window-bar"><span>{activeDay.week} // {activeDay.date}</span><span className="level">{activeDay.off ? "INGEN UNDERVISNING" : `GANG ${String(lessonNumber).padStart(2, "0")}`}</span></div>
+              {activeDay.off ? (
+                <div className="day-off-content">
+                  <p className="topic">KALENDER</p>
+                  <h3>{activeDay.title}</h3>
+                  <p>Vi mødes ikke denne torsdag. Vælg en anden dato i planen.</p>
+                </div>
+              ) : (
+                <div className="day-content">
+                  <p className="topic">{activeDay.phase}</p>
+                  <h3>{activeDay.title}</h3>
+                  <ol className="time-blocks">
+                    <li><time>16.30</time><div><strong>VI STARTER SAMMEN</strong><p>{activeDay.first}</p></div></li>
+                    <li className="is-break"><time>17.30</time><div><strong>PAUSE</strong><p>30 minutter til mad, luft og snak.</p></div></li>
+                    <li><time>18.00</time><div><strong>BYG, PRØV OG VIS</strong><p>{activeDay.second}</p></div></li>
+                  </ol>
+                  <p className="finish-time">[ SLUT 19.00 ]</p>
+                </div>
+              )}
+            </article>
+          </div>
         </section>
       </main>
       <SiteFooter />
@@ -558,6 +669,7 @@ function AiLabPage() {
 
 export function App() {
   const path = window.location.pathname.replace(/\/+$/, "") || "/";
+  if (path === "/plan") return <PlanPage />;
   if (path === "/css-spil") return <CssGamesPage />;
   if (path === "/roblox") return <RobloxPage />;
   if (path === "/ai-lab") return <AiLabPage />;
